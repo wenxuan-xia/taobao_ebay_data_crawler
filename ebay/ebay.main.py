@@ -3,9 +3,11 @@ import urllib2
 import mysql.connector
 import re
 
+#database/mysql setup, specify the database name with login credentials.
 cnx = mysql.connector.connect(user="root", password="nivlek0", host="127.0.0.1", database="ebay_and_taobao")
 cur = cnx.cursor()
 
+#this is a function to get the ebay url from a page.
 def url_maker(page):
     skc = 48*page
     base_url = "http://www.ebay.com/sch/i.html?_from=R40&_sacat=0&_dmd=2&_nkw=chocolate&_pgn=%d&_skc=%d&rt=nc" %(page, skc)
